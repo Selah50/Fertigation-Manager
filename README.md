@@ -2,15 +2,27 @@
 
 Arduino firmware program that automates the drain to waste hydroponic method
 
-The Fertigation Manager is an irrigation controller that automates the drain-to-waste hydroponic method of growing plants.  This method consists of deliveing a known amount of nutrient soulution to a
-soilless media, and having between 5% and 30% of that delivered solution end up as runoff. This method relies on multiple irrigation events per day. 
+The Fertigation Manager is a four station irrigation controller that automates the drain-to-waste hydroponic method of growing plants.  This method consists of deliveing a known amount of nutrient soulution to a soilless media, and having between 5% and 30% of that delivered solution end up as runoff. This method relies on multiple irrigation events per day.
 
-The hardware consists of a custom esp32 based PCB.  The PCB utilizes 8 MOSFETs that drive r385 DC pumps.  The MOSFETs have a continuous current rating of 1 amp, and the DC pumps draw
-around 400 mA.  The PCB also features 4 HX711 24 bit precision analog to digital converters to interface with the load cells (scales).  Connection to the load cells from the PCB is
-via RJ-45 connectors, and the pump connections are via JST-XH connectors.
+### Logic
 
-The logic is this:  Deliver a known amount of water to each station --> Allow some time to pass (called the sample period) for runoff to collect in drip trays that sit on scales --> Weigh the runoff and
-compare it to the input to determine the percentage of delivered water that ended up as runoff --> Automatically adjust the station setpoint (delivery volume) if the collected runoff is above or below the user defined setpoint.
+The logic is this:  Deliver a known amount of water to each station --> Allow some time to pass (called the sample period) for runoff to collect in drip trays that sit on scales --> Weigh the runoff and compare it to the input to determine the percentage of delivered water that ended up as runoff --> Automatically adjust the station setpoint (delivery volume) if the collected runoff is above or below the user defined setpoint.
+
+### Hardware
+
+The hardware consists of a custom esp32 based PCB.  The PCB utilizes 8 MOSFETs that drive r385 DC pumps.  The MOSFETs have a continuous current rating of 1 amp, and the DC pumps draw around 400 mA.  The PCB also features 4 HX711 24 bit precision analog to digital converters to interface with the load cells (scales).  Connection to the load cells from the PCB is via RJ-45 connectors, and the pump connections are via JST-XH connectors.
+
+### Software
+
+To start with this firmware you must have the [Arduino IDE](https://www.arduino.cc/en/software) installed on your computer.  In addition, you will be required to install two libraries, and one "board" once the Arduino IDE is installed.  The first library is form [Blynk](https://docs.blynk.io/en/).  Blynk facilitates communication between the Fertigation Manager hardware and the mobile app.  The next library, called HX711.h, is for communication between the microcontroller and the analog to digital converter that interfaces with the scales.  Both of these libraries are installed through the Arduino library manager.  
+
+The Arduino IDE natively supports all "Arduino" branded boards, but many 3rd party boards can be programmed with Arduino IDE.  These third party boards must be installed in the IDE before they can be programmed.  The GrowTek hardware uses an ESP32 microcontroller.  This board must be installed using the Arduino IDE "board manager" before it can be programmed.
+
+This firmare is built on the Blynk example called "Edgent_ESP32."  To use the .ino file in this repository, open the Blynk Edgent_ESP32 example in Arduino IDE, copy and paste the Fertigation Manager code into the Edgent_ESP32.ino file, and save as a new project.
+
+One last piece of software is required.  To program the microcontroller, you will be using a UART bridge form Silicone Labs.  A Windows/Mac driver is required for this and can be downloaded [here](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
+
+### Prerequisites
 
 For the system to function properly, the user must be aware of several important factors.  First, the plants being grown must be suspended above the scales.  The scales
 should only weigh the runoff that leaves the plant container, not the entire weight of the plant.  Second, the delivery pumps must be calibrated.  This is accomplished by
