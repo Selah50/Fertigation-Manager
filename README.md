@@ -4,17 +4,28 @@ Arduino firmware program that automates the drain to waste hydroponic method
 
 The Fertigation Manager is a four station irrigation controller that automates the drain-to-waste hydroponic method of growing plants.  This method consists of deliveing a known amount of nutrient soulution to a soilless media, and having between 5% and 30% of that delivered solution end up as runoff. This method relies on multiple irrigation events per day.
 
-![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/installation.jpg?v=1626726083 "Typical Installation")
+![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/installation.jpg?v=1626726083 "Typical installation")
 
 ### Logic
 
-The logic is this:  Deliver a known amount of water to each station --> Allow some time to pass (called the sample period) for runoff to collect in drip trays that sit on scales --> Weigh the runoff and compare it to the input to determine the percentage of delivered water that ended up as runoff --> Automatically adjust the station setpoint (delivery volume) if the collected runoff is above or below the user defined setpoint.
+At the beginning of the interval, feed pumps deliver a known amount of water or nutrient solution to each of the 4 stations in sequential order.  See image below.
+
+![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/img-01.jpg?v=1644292790 "Water Delivery")
+
+Next, the sample period occurs. During this time, runoff collects in drip trays sitting on the scales.  See image below.
+
+![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/img-02.jpg?v=1644292805 "Runoff collecting")
+
+The sample period ends when runoff stops. Runoff is then weighed and compared to the delivered volume to determine the percentage of runoff. Automatic adjustments to the station setpoint (delivery volume) will occur if the collected runoff is above or below the user defined "runoff setpoint."  After automatic adjustments to the station setpoints occur, each drip tray is emptied of runoff by a runoff pump (if this feature is enabled by the user). See image below.
+
+![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/img-03.jpg?v=1644292821 "Drain pumps removing runoff")
 
 ### Hardware
 
-The hardware consists of a custom esp32 based PCB.  The PCB utilizes 8 MOSFETs that drive r385 DC pumps.  The MOSFETs have a continuous current rating of 1 amp, and the DC pumps draw around 400 mA.  The PCB also features 4 HX711 24 bit precision analog to digital converters to interface with the load cells (scales).  Connection to the load cells from the PCB is via RJ-45 connectors, and the pump connections are via JST-XH connectors.  Everything you need to complete this build is available from [GrowTek](https://www.growtekusa.com/).
+The hardware consists of a custom esp32 based PCB.  The PCB utilizes 8 MOSFETs that act as a low side switchs to drive r385 DC pumps.  The MOSFETs have a continuous current rating of 1 amp, and the DC pumps draw around 400 mA.  The PCB also features 4 HX711 24 bit precision analog to digital converters to interface with the load cells (scales).  Connection to the load cells from the PCB is via RJ-45 connectors, and the pump connections are via JST-XH connectors.  Everything you need to complete this build is available from [GrowTek](https://www.growtekusa.com/).
 
-![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/image832.png?v=1644289705 "Hardware Pinout")
+![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/image832.png?v=1644289705 "Hardware pinout")
+![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/PXL_20220208_032320435.jpg?v=1644292014 "Hardware components")
 
 ### Software
 
