@@ -14,7 +14,7 @@ The logic is this:  Deliver a known amount of water to each station --> Allow so
 
 The hardware consists of a custom esp32 based PCB.  The PCB utilizes 8 MOSFETs that drive r385 DC pumps.  The MOSFETs have a continuous current rating of 1 amp, and the DC pumps draw around 400 mA.  The PCB also features 4 HX711 24 bit precision analog to digital converters to interface with the load cells (scales).  Connection to the load cells from the PCB is via RJ-45 connectors, and the pump connections are via JST-XH connectors.  Everything you need to complete this build is available from [GrowTek](https://www.growtekusa.com/).
 
-![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/image832.png?v=1644288990 "Hardware Pinout")
+![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/image832.png?v=1644289705 "Hardware Pinout")
 
 ### Software
 
