@@ -41,7 +41,7 @@ The next library, called [HX711.h](https://github.com/bogde/HX711) by Bogdan Nec
 
 The Arduino IDE natively supports all "Arduino" branded boards, but many 3rd party boards can be programmed with Arduino IDE.  These third party boards must be installed in the IDE before they can be programmed.  The GrowTek hardware uses an ESP32 microcontroller.  This board must be installed using the Arduino IDE "board manager" before it can be programmed.
 
-One last piece of software is required.  To program the microcontroller, you will be using a UART bridge form Silicone Labs.  A Windows/Mac driver is required for this and can be downloaded [here](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
+One last piece of software is required.  To program the microcontroller, you will be using a UART bridge from Silicone Labs.  A Windows/Mac driver is required for this and can be downloaded [here](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
 
 ## Prerequisites
 
