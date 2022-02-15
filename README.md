@@ -1,8 +1,13 @@
 # Fertigation-Manager
 
-Arduino firmware program that automates the drain to waste hydroponic method
+An Arduino firmware program that automates the drain to waste hydroponic method.
 
-The Fertigation Manager is a four station irrigation controller that automates the drain-to-waste hydroponic method of growing plants.  This method consists of deliveing a known amount of nutrient soulution to a soilless media, and having between 5% and 30% of that delivered solution end up as runoff. This method relies on multiple irrigation events per day that are timed on a regular interval.
+## Introduction
+
+The Fertigation Manager is a four station irrigation controller that automates the drain-to-waste hydroponic method of growing plants.  This method consists of deliveing a known amount of nutrient soulution to a soilless media, and having between 5% and 30% of that delivered solution end up as runoff. This method relies on multiple irrigation events per day that are timed on a regular interval.  
+
+This document is meant to be a supplement to the GrowTek video series that describes step-by-step how to build and program your own device.  GrowTek offers no technical support
+to those who chooses to build this system on their own.  This system can be built using "off the shelf" parts purchased from your supplier of choice, or built using components that are available from GrowTek.  If you are left with questions that are not answered in this document, the video series, or GrowTek's website, see the resources section below for further reading.
 
 ![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/installation.jpg?v=1626726083 "Typical installation")
 
