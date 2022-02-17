@@ -4,12 +4,20 @@ An Arduino firmware program that automates the drain to waste hydroponic method.
 
 ## Introduction
 
-The Fertigation Manager is a four station irrigation controller that automates the drain-to-waste hydroponic method of growing plants.  This method consists of deliveing a known amount of nutrient soulution to a soilless media, and having between 5% and 30% of that delivered solution end up as runoff. This method relies on multiple irrigation events per day that are timed on a regular interval.  
+The Fertigation Manager is a four station irrigation controller that automates the drain-to-waste hydroponic method of growing plants.  This method consists of deliveing a known amount of nutrient soulution to a soilless media, and having between 5% and 30% of the delivered solution end up as runoff. This method relies on multiple irrigation events per day that are timed on a regular interval.  
 
 This document is meant to be a supplement to the GrowTek video series that describes step-by-step how to build and program your own device.  GrowTek offers no technical support
 to those who chooses to build this system on their own.  This system can be built using "off the shelf" parts purchased from your supplier of choice, or built using components that are available from GrowTek.  If you are left with questions that are not answered in this document, the video series, or GrowTek's website, see the resources section below for further reading.
 
 ![alt text](https://cdn.shopify.com/s/files/1/0576/1928/4136/files/installation.jpg?v=1626726083 "Typical installation")
+
+## Prerequisites
+
+For the system to function properly, the user must be aware of several important factors. 
+* The plants being grown must be suspended above the scales.  The scales should only weigh the runoff that leaves the plant container, not the entire weight of the plant.  
+* The delivery pumps must be calibrated.  This is accomplished by running the pumps for 10 seconds and weighing/measuring the amount of water that they can move in that timeframe.  This value is then input into the system and used to determine how long to run the pumps to deliver the correct amount of water.  **The calibration process must be compleated after final installation of all the tubing, pumps and drip rings.**  Watch [this](https://youtu.be/BVgKbJ0LVR4) video for the calibration process.
+* The scales must be calibrated before the system is put into use. Watch [this](https://youtu.be/z3Qgfi1_d_E) video for the calibration process.
+* To complete this build and use the Fertigation Manager, you will be required to sign up for an account with Blynk.  Blynk does offer a free account, but for this project you will need to sign up for their plus plan which costs $4.99 a month.
 
 ## Logic
 
@@ -47,12 +55,6 @@ The next library, called [HX711.h](https://github.com/bogde/HX711) by Bogdan Nec
 The Arduino IDE natively supports all "Arduino" branded boards, but many 3rd party boards can be programmed with Arduino IDE.  These third party boards must be installed in the IDE before they can be programmed.  The GrowTek hardware uses an ESP32 microcontroller.  This board must be installed using the Arduino IDE "board manager" before it can be programmed.
 
 One last piece of software is required.  To program the microcontroller, you will be using a UART bridge from Silicone Labs.  A Windows/Mac driver is required for this and can be downloaded [here](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
-
-## Prerequisites
-
-For the system to function properly, the user must be aware of several important factors.  **First, the plants being grown must be suspended above the scales.**  The scales
-should only weigh the runoff that leaves the plant container, not the entire weight of the plant.  Second, the delivery pumps must be calibrated.  This is accomplished by
-running the pumps for 10 seconds and weighing/measuring the amount of water that they can move in that timeframe.  This value is then input into the system and used to determine how long to run the pumps to deliver the correct amount of water.  **The calibration process must be compleated after final installation of all the tubing, pumps and drip rings.**  Third, the scales must be calibrated before the system is put into use.
 
 ## Resources
 
